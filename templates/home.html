@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card shadow-lg">
+    <div class="card-header bg-success text-white">
+        <h2 class="mb-0">
+            <i class="bi bi-check-circle me-2"></i>
+            SISTEMA FUNCIONANDO!
+        </h2>
+    </div>
+    <div class="card-body">
+        <h1 class="text-primary">🎉 Parabéns!</h1>
+        <p class="lead">O Django está rodando com Bootstrap 5.</p>
+        
+        <div class="alert alert-info mt-4">
+            <h4><i class="bi bi-info-circle me-2"></i>Informações do Sistema:</h4>
+            <ul>
+                <li>URL atual: <code>{{ request.path }}</code></li>
+                <li>Usuário: <strong>{{ user.username|default:"Visitante" }}</strong></li>
+                <li>Data: {% now "d/m/Y H:i" %}</li>
+            </ul>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-tags"></i> Categorias
+                        </h5>
+                        <p class="card-text">Gerencie suas categorias de produtos.</p>
+                        <a href="/admin/catalogo/categoria/" class="btn btn-light">Ir para Admin</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-box"></i> Produtos
+                        </h5>
+                        <p class="card-text">Gerencie seu catálogo de produtos.</p>
+                        <a href="/admin/catalogo/produto/" class="btn btn-light">Ir para Admin</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card text-white bg-warning">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <i class="bi bi-shield-lock"></i> Admin
+                        </h5>
+                        <p class="card-text">Painel de administração completo.</p>
+                        <a href="/admin/" class="btn btn-light">Acessar Admin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <a href="/categorias/" class="btn btn-lg btn-outline-primary">
+                <i class="bi bi-arrow-right-circle me-2"></i>
+                Ver Lista de Categorias
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
